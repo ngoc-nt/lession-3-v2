@@ -2,20 +2,24 @@ import React, { useState } from "react";
 import { Image } from "react-bootstrap";
 import MovieCard from "../../molecules/MovieCard/MovieCard";
 import styles from "./Recommended.module.scss";
-import { useRecommendedMovie, useGenres } from "../../../api";
+import { useRecommendedMovie } from "../../../api";
+
+interface Movie {
+  genre_ids: number[];
+}
 
 interface Genre {
   id: number;
   name: string;
 }
 
-interface Movie {
-  genre_ids: number[];
+interface GenresProps {
+  genresList: any;
 }
 
-const Recommended: React.FC = () => {
+const Recommended: React.FC<GenresProps> = ({genresList}) => {
+  const genres: Genre[] = genresList;
   const recommendedMovies = useRecommendedMovie();
-  const genres: Genre[] = useGenres();
 
   const [selectedGenre, setSelectedGenre] = useState<number | null>(null);
   const handleAllClick = () => {

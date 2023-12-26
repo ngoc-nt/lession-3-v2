@@ -5,15 +5,23 @@ import Trending from '../../components/organisms/Trending/Trending';
 import Movie from '../../components/organisms/Movie/Movie';
 import Series from '../../components/organisms/Series/Series';
 import Recommended from '../../components/organisms/Recommended/Recommended';
+import { useGenres } from "../../api";
+
+interface Genre {
+  id: number;
+  name: string;
+}
 
 const Home: React.FC = () => {
+  const genresList: Genre[] = useGenres();
+
   return (
-    <Layout>
+    <Layout genresList={genresList}>
       <RecentlyUpdated />
       <Trending />
       <Movie />
       <Series />
-        <Recommended />
+        <Recommended genresList={genresList}/>
     </Layout>
   );
 };

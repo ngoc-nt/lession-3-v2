@@ -36,3 +36,9 @@ export const useClock = (): string => {
   const now = new Date();
   return now.toLocaleTimeString('en-US', { hour12: false });
 };
+
+export const getRandomQuality = () => {
+  const qualities = ['HD', '4K'];
+  const randomIndex = Math.floor(Math.random() * qualities.length);
+  return qualities[randomIndex];
+};

@@ -32,7 +32,7 @@ const TrendingCard: React.FC<TTrendingCard> = ({ trendingMovie }) => {
             <div className="position-relative">
                 <Card.Img
                     variant="top"
-                    src={getImageUrl(trendingMovie && trendingMovie.poster_path)}
+                    src={getImageUrl(trendingMovie && trendingMovie.poster_path)} alt={trendingMovie.title}
                 />
                {trendingMovie.video && (
                 <Image

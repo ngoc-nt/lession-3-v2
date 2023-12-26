@@ -1,6 +1,6 @@
 // api.js
 const { useEffect, useState } = require('react');
-const { fetchDataFromApi, getYearFromDate, getImageUrl} = require('./utils');
+const { fetchDataFromApi, getYearFromDate, getImageUrl, getRandomQuality} = require('./utils');
 
 const useGenres = () => {
   const [genres, setGenres] = useState([]);
@@ -119,5 +119,6 @@ module.exports = {
   useReleaseMovie,
   useRecommendedMovie,
   getYearFromDate,
-  getImageUrl
+  getImageUrl,
+  getRandomQuality
 };
