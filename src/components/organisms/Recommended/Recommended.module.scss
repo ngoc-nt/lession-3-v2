@@ -1,0 +1,26 @@
+.bgColorRed {
+  background-color: #ff0000 !important;
+}
+
+.sectionTitle {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.viewAll {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  opacity: 0.5;
+}
+
+.viewAll:hover {
+  cursor: pointer;
+}
+
+.info {
+  border: 1px solid #ff0000 !important;
+  color: #ffffff !important;
+  opacity: 0.8 !important;
+}
