@@ -1,9 +1,10 @@
+
+## LINK DEMO WEBSITE
+[Open Here](https://master--wonderful-tarsier-b6acc6.netlify.app/){:target="_blank"} to view it in the browser.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## LINK DEMO WEBSITE
-[Open Here](https://master--wonderful-tarsier-b6acc6.netlify.app/) to view it in the browser.
 
 ## Available Scripts
 
