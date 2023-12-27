@@ -3,6 +3,7 @@ import styles from "./Movie.module.scss";
 import { Image } from "react-bootstrap";
 import MovieCard from "../../molecules/MovieCard/MovieCard";
 import { useReleaseMovie } from "../../../api";
+import { MovieItemLoading } from "../../loading/MovieItemLoading";
 
 const Movie: React.FC = () => {
     const releaseMovies = useReleaseMovie();
@@ -28,7 +29,11 @@ const Movie: React.FC = () => {
                     .fill(null)
                     .map((_, index) => (
                         <div className="col-md-6 col-lg-3 mb-2" key={index}>
-                            <MovieCard releaseMovie={releaseMovies} />
+                            {!releaseMovies ? (
+                                <MovieCard releaseMovie={releaseMovies} />
+                            ) : (
+                                <MovieItemLoading></MovieItemLoading>
+                            )}
                         </div>
                     ))}
             </div>
