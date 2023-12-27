@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Badge, Carousel, Image } from "react-bootstrap";
 import styles from "./SliderItem.module.scss";
 import { getYearFromDate, getImageUrl } from "../../../api";
-import { AppContext} from '../../../context/AppContext'
+import { AppContext} from '../../../Context/AppContext'
 
 interface SliderItemProps {
     movieData: any;

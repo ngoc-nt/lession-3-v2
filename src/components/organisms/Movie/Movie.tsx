@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Movie.module.scss";
 import { Image } from "react-bootstrap";
 import MovieCard from "../../molecules/MovieCard/MovieCard";
 import { useReleaseMovie } from "../../../api";
-import { MovieItemLoading } from "../../loading/MovieItemLoading";
+import MovieItemLoading from "../../loading/MovieItemLoading";
 
 const Movie: React.FC = () => {
     const releaseMovies = useReleaseMovie();
+    const [loading, setLoading] = useState<boolean>(true);
+
+    useEffect(() => {
+      const runTimeout = () => {
+        setTimeout(() => {
+          setLoading(true);
+  
+          setTimeout(() => {
+            setLoading(false);
+          }, 3000);
+        }, 3000);
+      };
+  
+      runTimeout();
+    }, []);
 
     return (
         <section className="pt-5 pb-3">
@@ -29,7 +44,7 @@ const Movie: React.FC = () => {
                     .fill(null)
                     .map((_, index) => (
                         <div className="col-md-6 col-lg-3 mb-2" key={index}>
-                            {!releaseMovies ? (
+                            {!loading && releaseMovies ? (
                                 <MovieCard releaseMovie={releaseMovies} />
                             ) : (
                                 <MovieItemLoading></MovieItemLoading>

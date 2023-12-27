@@ -6,7 +6,7 @@ import {
     roundToTwoDecimalPlaces,
     getImageUrl,
 } from "../../../utils";
-import { AppContext } from "../../../context/AppContext";
+import { AppContext } from "../../../Context/AppContext";
 
 type TTrendingCard = {
     trendingMovie: any;
