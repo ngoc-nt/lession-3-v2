@@ -3,7 +3,7 @@ import { Image } from "react-bootstrap";
 import MovieCard from "../../molecules/MovieCard/MovieCard";
 import styles from "./Recommended.module.scss";
 import { useRecommendedMovie } from "../../../api";
-import { AppContext} from '../../../Context/AppContext'
+import { AppContext} from '../../../context/AppContext'
 
 interface Movie {
   genre_ids: number[];

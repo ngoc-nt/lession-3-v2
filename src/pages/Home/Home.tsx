@@ -5,7 +5,7 @@ import Trending from '../../components/organisms/Trending/Trending';
 import Movie from '../../components/organisms/Movie/Movie';
 import Series from '../../components/organisms/Series/Series';
 import Recommended from '../../components/organisms/Recommended/Recommended';
-import { AppProvider } from '../../Context/AppContext';
+import { AppProvider } from '../../context/AppContext';
 
 const Home: React.FC = () => {
   return (
