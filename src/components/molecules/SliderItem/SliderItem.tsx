@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Badge, Carousel, Image } from "react-bootstrap";
 import styles from "./SliderItem.module.scss";
 import { getYearFromDate, getImageUrl } from "../../../api";
+import { AppContext} from '../../../Context/AppContext'
 
 interface SliderItemProps {
-    genresList: any;
     movieData: any;
 }
 
@@ -13,9 +13,8 @@ interface Genre {
     name: string;
 }
 
-const SliderItem: React.FC<SliderItemProps> = ({ genresList, movieData }) => {
-    const genres: Genre[] = genresList;
-
+const SliderItem: React.FC<SliderItemProps> = ({movieData}) => {
+    const genres: Genre[] = useContext(AppContext);
     return (
         <>
             <Image

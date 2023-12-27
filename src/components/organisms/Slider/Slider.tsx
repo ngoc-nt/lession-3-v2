@@ -4,11 +4,8 @@ import styles from './Slider.module.scss';
 import SliderItem from '../../molecules/SliderItem/SliderItem';
 import { useSliderMovie } from '../../../api';
 
-interface GenresProps {
-  genresList: any;
-}
 
-const Slider: React.FC<GenresProps> = ({genresList}) => {
+const Slider: React.FC = () => {
   const movies = useSliderMovie();
 
   return (
@@ -16,7 +13,7 @@ const Slider: React.FC<GenresProps> = ({genresList}) => {
       <Carousel controls={false}>
         {movies.map((movie, index) => (
           <Carousel.Item key={index}>
-            <SliderItem movieData={movie} genresList={genresList} />
+            <SliderItem movieData={movie} />
           </Carousel.Item>
         ))}
       </Carousel>

@@ -1,24 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Image } from "react-bootstrap";
 import MovieCard from "../../molecules/MovieCard/MovieCard";
 import styles from "./Recommended.module.scss";
 import { useRecommendedMovie } from "../../../api";
+import { AppContext} from '../../../Context/AppContext'
 
 interface Movie {
   genre_ids: number[];
 }
-
 interface Genre {
   id: number;
   name: string;
 }
 
-interface GenresProps {
-  genresList: any;
-}
-
-const Recommended: React.FC<GenresProps> = ({genresList}) => {
-  const genres: Genre[] = genresList;
+const Recommended: React.FC = () => {
+  const genres: Genre[] = useContext(AppContext);
   const recommendedMovies = useRecommendedMovie();
 
   const [selectedGenre, setSelectedGenre] = useState<number | null>(null);

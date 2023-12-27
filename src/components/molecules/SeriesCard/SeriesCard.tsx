@@ -7,7 +7,7 @@ export type TSeriesCard = {
   releaseMovie: any;
 };
 
-const SeriesCard: React.FC<TSeriesCard> = ({ releaseMovie }) => {
+const SeriesCard: React.FC<TSeriesCard> = ({releaseMovie}) => {
   return (
     <Card className='main-content'>
       <div className='position-relative'>

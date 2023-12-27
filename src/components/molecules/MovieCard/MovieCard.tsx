@@ -7,7 +7,7 @@ export type TMovieCard = {
   releaseMovie: any;
 };
 
-const MovieCard: React.FC<TMovieCard> = ({ releaseMovie }) => {
+const MovieCard: React.FC<TMovieCard> = ({releaseMovie}) => {
   return (
     <Card
       className={`main-content mt-1 ${releaseMovie && releaseMovie.original_language

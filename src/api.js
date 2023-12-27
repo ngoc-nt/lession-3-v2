@@ -2,23 +2,6 @@
 const { useEffect, useState } = require('react');
 const { fetchDataFromApi, getYearFromDate, getImageUrl, getRandomQuality} = require('./utils');
 
-const useGenres = () => {
-  const [genres, setGenres] = useState([]);
-
-  useEffect(() => {
-    const fetchGenres = async () => {
-      const genresData = await fetchDataFromApi('genre/movie/list');
-      if (genresData) {
-        setGenres(genresData.genres);
-      }
-    };
-
-    fetchGenres();
-  }, []);
-
-  return genres;
-};
-
 const useSliderMovie = () => {
   const [movies, setMovies] = useState([]);
   const [index, setIndex] = useState(0);
@@ -112,7 +95,6 @@ const useRecommendedMovie = () => {
 };
 
 module.exports = {
-  useGenres,
   useSliderMovie,
   useRecentlyMovie,
   useTrendingMovie,
