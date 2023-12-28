@@ -15,7 +15,7 @@ const Home: React.FC = () => {
         <Trending />
         <Movie />
         <Series />
-          <Recommended/>
+        <Recommended/>
       </Layout>
     </AppProvider>
   );
