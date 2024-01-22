@@ -23,7 +23,11 @@ const Home: React.FC = () => {
     const fetchData = async () => {        
       try {
         const videoMovies = await getMovieDetails(movieId.id);
-        setSelectedVideo(videoMovies.video[0].key);
+        if (videoMovies && videoMovies.video && videoMovies.video.length > 0) {
+          setSelectedVideo(videoMovies.video[0].key);
+        } else {
+          console.error('Video details not available');
+        }
         setSelectedSeasonIndex(0);
       } catch (error) {
         console.error('Error fetching data:', error);

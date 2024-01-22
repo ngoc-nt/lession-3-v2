@@ -50,12 +50,32 @@ export const FormatDate = (dateString: string): string => {
 };
 
 export const getMovieDetails = async (movieId: string | undefined) => {
-  const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}`);
-  const data = await response.json();    
-  return {
-      id: movieId,
-      video: data.results.slice(0,6),
-  };
+  try {
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}`);
+
+    if (response.status === 404) {
+      console.error('Movie not found');
+      return null;
+    }
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch movie details. Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (data.results && Array.isArray(data.results)) {
+      return {
+        id: movieId,
+        video: data.results.slice(0, 6),
+      };
+    } else {
+      throw new Error('Unexpected response format');
+    }
+  } catch (error) {
+    console.error('Error fetching movie details:', error);
+    throw error;
+  }
 };
 
 export const getVidelUrl = (videoUrl : string | null) => {

@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./MovieCard.module.scss";
-import { Card, Image, NavLink } from "react-bootstrap";
+import { Card, Image } from "react-bootstrap";
 import { getImageUrl, useClock, getRandomQuality } from "../../../utils";
+import { Link } from "react-router-dom";
 
 export type TMovieCard = {
     releaseMovie: any;
@@ -9,7 +10,7 @@ export type TMovieCard = {
 
 const MovieCard: React.FC<TMovieCard> = ({ releaseMovie }) => {
     return (
-        <NavLink href={`/movie/${releaseMovie && releaseMovie.id}`}>
+        <Link to={`/movie/${releaseMovie && releaseMovie.id}`}>
             <Card
                 className={`main-content mt-1 ${
                     releaseMovie && releaseMovie.original_language
@@ -46,7 +47,7 @@ const MovieCard: React.FC<TMovieCard> = ({ releaseMovie }) => {
                     </div>
                 </div>
             </Card>
-        </NavLink>
+        </Link>
     );
 };
 

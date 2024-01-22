@@ -19,15 +19,24 @@ const VideoChap: React.FC<SeasonMoviesProps> = ({ movieId, onSelectSeason, selec
   const [seasons, setSeasons] = useState<MovieDetails>();
   useEffect(() => {
     const fetchData = async () => {
-      try {        
+      try {
         const response = await fetchDataFromApi(`movie/${movieId}/videos`);
-        const datas = {
-          id: movieId,
-          video: response.results.slice(0,6),
+      
+        if (response.results && Array.isArray(response.results)) {
+          const datas = {
+            id: movieId,
+            video: response.results.slice(0, 6),
+          };
+          setSeasons(datas);
+        } else {
+          console.error('Unexpected response format for video data');
         }
-        setSeasons(datas);
-      } catch (error) {
-        console.error('Error fetching data season 123:', error);
+      } catch (error: any) {
+        if (error.response && error.response.status === 404) {
+          console.error('Data not found (404)');
+        } else {
+          console.error('Error fetching data season:', error);
+        }
       }
     };
 
