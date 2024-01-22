@@ -1,5 +1,5 @@
 // utils.ts
-import { BASE_API_URL, API_KEY, HOURS_IN_MINUTES, PATH_IMG_API_URL, DEFAULT_IMAGE_NAME  } from './constants';
+import { BASE_API_URL, API_KEY, HOURS_IN_MINUTES, PATH_IMG_API_URL, DEFAULT_IMAGE_NAME, PATH_VIDEO_URL  } from './constants';
 
 export const fetchDataFromApi = async <T>(endpoint: T) => {
   try {
@@ -41,4 +41,23 @@ export const getRandomQuality = () => {
   const qualities = ['HD', '4K'];
   const randomIndex = Math.floor(Math.random() * qualities.length);
   return qualities[randomIndex];
+};
+
+export const FormatDate = (dateString: string): string => {
+  const options: Intl.DateTimeFormatOptions = { month: 'short', day: 'numeric', year: 'numeric' };
+  const formattedDate = new Date(dateString).toLocaleDateString(undefined, options);
+  return formattedDate;
+};
+
+export const getMovieDetails = async (movieId: string | undefined) => {
+  const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}`);
+  const data = await response.json();    
+  return {
+      id: movieId,
+      video: data.results.slice(0,6),
+  };
+};
+
+export const getVidelUrl = (videoUrl : string | null) => {
+  return videoUrl ? `${PATH_VIDEO_URL}${videoUrl}` : `https://www.youtube.com/embed/NQ6_Sqt_w3Y?si=TG5Ww3_S7hNdtNUY`;
 };

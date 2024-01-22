@@ -1,0 +1,32 @@
+.sectionTitle {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.blockEpisode {
+  border-radius: 5px;
+  width: 100%;
+  height: 58px;
+}
+
+.selected {
+  background-color: #FF0000;
+}
+
+.notSelected {
+  color: #000;
+  background-color: #D9D9D9;
+}
+
+.iconPlay {
+  width: 13px;
+  height: 13px;
+}
+
+.textEpisode {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

@@ -28,6 +28,10 @@ const useRecentlyMovie = () => useMovieHook('movie/upcoming');
 const useTrendingMovie = () => useMovieHook('trending/movie/week');
 const useReleaseMovie = () => useMovieHook('movie/latest', false);
 const useRecommendedMovie = () => useMovieHook('movie/top_rated');
+const useDetailMovie = (id) => useMovieHook(`movie/${id}`, false);
+const useMoviesReviews = (id) => useMovieHook(`movie/${id}/reviews`, false);
+const useMoviesSimilar = (id) => useMovieHook(`movie/${id}/similar`, false);
+const useMovieCommings = () => useMovieHook(`movie/upcoming`);
 
 module.exports = {
   useSliderMovie,
@@ -38,4 +42,9 @@ module.exports = {
   getYearFromDate,
   getImageUrl,
   getRandomQuality,
+  useDetailMovie,
+  useMoviesReviews,
+  useMoviesSimilar,
+  useDetailMovie,
+  useMovieCommings
 };

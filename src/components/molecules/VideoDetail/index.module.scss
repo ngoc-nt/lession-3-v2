@@ -1,0 +1,60 @@
+.imagePoster {
+  max-width: 352px;
+  border-radius: 10px !important;
+}
+
+.btnFavourite {
+  background: #ff0000;
+  border-radius: 15px;
+  width: 190px;
+}
+
+.text {
+  width: 131px;
+  height: 24px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 51px;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.badge {
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 10px !important;
+  height: 34px !important;
+}
+
+.overview {
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.decription {
+  text-align: right;
+}
+
+@media screen and (max-width: 576px) {
+  span, .overview {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .imagePoster {
+    max-width: 100% !important;
+  }
+}
+  

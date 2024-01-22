@@ -1,6 +1,6 @@
 
 ## LINK DEMO WEBSITE
-[Open Here](https://master--wonderful-tarsier-b6acc6.netlify.app/){:target="_blank"} to view it in the browser.
+[Open Here](https://lession-3-v2.vercel.app/){:target="_blank"} to view it in the browser.
 
 # Getting Started with Create React App
 
